@@ -1,0 +1,39 @@
+:root {
+  --bg: #0b1020;
+  --panel: #121836;
+  --text: #e6ecff;
+  --muted: #a8b2d1;
+  --brand: #7aa2ff;
+  --accent: #ffd166;
+  --dark-blue: #0d1530;
+  --dark-blue-border: #1a2a5e;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color: var(--text); background: radial-gradient(1200px 800px at 20% 0%, #101736, var(--bg)); display: flex; flex-direction: column; }
+
+.site-header { position: relative; z-index: 2; background: rgba(18,24,54,.85); border-bottom: 1px solid #2a335a; padding: 8px 16px; display: flex; align-items: center; justify-content: space-between; }
+.site-header.fixed { position: fixed; top: 0; left: 0; right: 0; }
+.site-header.fixed ~ .container { margin-top: 80px; }
+.site-header .branding { display: flex; gap: 12px; align-items: center; }
+.site-header .logo { height: 36px; width: 36px; filter: drop-shadow(0 2px 8px rgba(122,162,255,.4)); }
+.site-header .site-nav { display: flex; gap: 16px; justify-content: flex-end; }
+.site-header .site-nav a { color: var(--text); text-decoration: none; padding: 8px 10px; border-radius: 8px; }
+.site-header .site-nav a:hover { background: rgba(122,162,255,.12); color: var(--brand); }
+
+.container { width: min(1200px, 100%); margin: 24px auto; padding: 0 16px; flex: 1; }
+
+/* Узгоджені відступи та типографіка */
+h1 { margin: 8px 0 0; font-size: 1.6rem; }
+h2 { margin: 0 0 12px; font-size: 1.25rem; }
+section { margin: 20px 0; }
+
+.site-footer { display: flex; justify-content: space-between; align-items: center; padding: 20px 16px; border-top: 1px solid #2a335a; background: rgba(18,24,54,.85); margin-top: auto; }
+.site-footer:focus { transition: background 3s linear; background: linear-gradient(90deg, #b7f7c3, #5cd46f); }
+
+p { color: var(--text); }
+.tagline { color: var(--muted); }
+a[href^="http"] { text-decoration-style: wavy; }
+.branding:hover { transform: scale(1.02); }
+
+

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orionpedia — Зворотній зв’язок</title>
+    
+</head>
+<body>
+    <header>
+        <img src="assets/img/logo.svg" alt="Логотип Orionpedia" width="48" height="48">
+        <h1>Orionpedia — Зворотній зв’язок</h1>
+
+        <nav aria-label="Головна навігація">
+            <ul>
+                <li><a href="section-some1.html">Розділ про Планети</a></li>
+                <li><a href="section-some2.html">Розділ про Зірки</a></li>
+                <li><a href="index.html">На головну</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        
+
+        <article class="content">
+            <section>
+                <h2>Форма</h2>
+                <form action="#" method="post">
+                    <fieldset>
+                        <legend>Персональна інформація</legend>
+                        <div class="grid">
+                            <label>Прізвище та ім’я *
+                                <input type="text" name="fullName" required placeholder="Іваненко Іван">
+                            </label>
+                            <label>E-mail *
+                                <input type="email" name="email" required placeholder="name@example.com">
+                            </label>
+                            <label>Вік *
+                                <input type="number" name="age" required min="1" max="120">
+                            </label>
+                            <label>Освіта *
+                                <select name="education" required>
+                                    <option value="">— Оберіть —</option>
+                                    <option>повна</option>
+                                    <option>неповна</option>
+                                    <option>вища</option>
+                                    <option>професійна</option>
+                                </select>
+                            </label>
+                            
+                        </div>
+                    </fieldset>
+
+                    <div class="grid">
+                        <label>Мета зворотнього зв’язку
+                            <select name="purpose" required>
+                                <option value="">— Оберіть —</option>
+                                <option>співпраця</option>
+                                <option>скарга на порушення права власності</option>
+                                <option>пропозиція</option>
+                                <option>наявність помилки</option>
+                            </select>
+                        </label>
+                        <label>Детально
+                            <textarea name="details" rows="5" cols="40" maxlength="500" style="max-height: 200px; max-width: 100%;"></textarea>
+                        </label>
+                    </div>
+
+                    <label class="consent">
+                        <input type="checkbox" name="consent" required>
+                        Згоден(на) на обробку інформації
+                    </label>
+
+                    <div class="actions">
+                        <button type="submit" class="btn btn-primary">Надіслати</button>
+                        <button type="reset" class="btn">Очистити</button>
+                    </div>
+                </form>
+            </section>
+        </article>
+    </main>
+
+    
+
+    
+</body>
+</html>
+

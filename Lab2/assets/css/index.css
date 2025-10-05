@@ -1,0 +1,17 @@
+/* Головна (вар.7) */
+.block { background: rgba(18,24,54,.6); border: 1px solid #2a335a; border-radius: 12px; padding: 20px; margin: 28px 0 32px; box-shadow: 0 6px 24px rgba(0,0,0,.25); }
+.mission { margin: 48px 0 56px; padding: 14px; }
+.mission::before { content: "👋 "; }
+.mission-text::first-line { font-style: italic; }
+
+.table-section { transition: transform .25s ease; }
+.table-section:hover, .table-section:focus { transform: translateY(3%); }
+
+.table-wrapper { overflow: auto; border-radius: 10px; border: 1px solid #2a335a; background: rgba(13,21,48,.4); }
+table { width: 100%; border-collapse: collapse; min-width: 680px; }
+th, td { border: 1px solid #2a335a; padding: 10px 12px; text-align: left; }
+thead th { background: #16204a; }
+
+.long-text { max-height: 72px; overflow: auto; background: rgba(13,21,48,.6); padding: 8px; border-radius: 8px; }
+.
+

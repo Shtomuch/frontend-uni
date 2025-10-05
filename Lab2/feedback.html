@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab2 — Зворотній зв’язок (Варіант 7)</title>
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/feedback.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="branding">
+            <img class="logo" src="../Lab1/assets/img/logo.svg" alt="Логотип" width="48" height="48">
+            <h1>Зворотній зв’язок</h1>
+        </div>
+        <nav class="site-nav">
+            <a href="index.html">Головна</a>
+            <a href="section-some1.html">Планети</a>
+            <a href="section-some2.html">Зірки</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <form class="feedback flex" action="#" method="post">
+            <fieldset class="personal">
+                <legend>Персональна інформація</legend>
+                <label>Прізвище та ім’я
+                    <input type="text" name="fullName" required>
+                </label>
+                <label>E-mail
+                    <input type="email" name="email" required>
+                </label>
+                <label>Вік
+                    <input type="number" name="age" required min="1" max="120">
+                </label>
+                <label>Освіта
+                    <select name="education" required>
+                        <option>повна</option>
+                        <option>неповна</option>
+                        <option>вища</option>
+                        <option>професійна</option>
+                    </select>
+                </label>
+            </fieldset>
+
+            <label class="purpose">Мета зворотнього зв’язку
+                <select name="purpose" required>
+                    <option>співпраця</option>
+                    <option>скарга на порушення права власності</option>
+                    <option>пропозиція</option>
+                    <option>наявність помилки</option>
+                </select>
+            </label>
+
+            <label class="details">Детально
+                <textarea name="details" maxlength="500" rows="6"></textarea>
+            </label>
+
+            <label class="consent">
+                <input type="checkbox" required> Згода на обробку інформації
+            </label>
+
+            <div class="actions">
+                <button type="submit" class="btn primary">Надіслати</button>
+                <button type="reset" class="btn">Очистити</button>
+            </div>
+        </form>
+    </main>
+
+    <footer class="site-footer">
+        <small>Лабораторна №2 · Варіант 7</small>
+    </footer>
+</body>
+</html>
+
+
