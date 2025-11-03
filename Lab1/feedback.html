@@ -3,87 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Orionpedia — Зворотній зв’язок</title>
-    
+    <title>Orionpedia — Зворотній зв'язок</title>
 </head>
-<body>
-    <header>
-        <img src="assets/img/logo.svg" alt="Логотип Orionpedia" width="48" height="48">
-        <h1>Orionpedia — Зворотній зв’язок</h1>
+<body bgcolor="#0a0e1a" text="#e0e6f0" link="#6699ff" vlink="#9966ff">
 
-        <nav aria-label="Головна навігація">
-            <ul>
-                <li><a href="section-some1.html">Розділ про Планети</a></li>
-                <li><a href="section-some2.html">Розділ про Зірки</a></li>
-                <li><a href="index.html">На головну</a></li>
-            </ul>
-        </nav>
-    </header>
+    <table width="100%" cellpadding="10" cellspacing="0" bgcolor="#12182a" border="0">
+        <tr>
+            <td align="center">
+                <table width="95%" cellpadding="5" cellspacing="0">
+                    <tr>
+                        <td>
+                            <img src="assets/img/logo.svg" alt="Логотип Orionpedia" width="60" height="60" align="left" hspace="10">
+                            <h1><font color="#7aa2ff" size="5">Orionpedia — Зворотній зв'язок</font></h1>
+                        </td>
+                        <td align="right" valign="middle">
+                            <font size="3">
+                                <a href="section-some1.html">Планети</a> |
+                                <a href="section-some2.html">Зірки</a> |
+                                <a href="index.html">На головну</a>
+                            </font>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
 
-    <main>
-        
+    <br><br>
 
-        <article class="content">
-            <section>
-                <h2>Форма</h2>
-                <form action="#" method="post">
-                    <fieldset>
-                        <legend>Персональна інформація</legend>
-                        <div class="grid">
-                            <label>Прізвище та ім’я *
-                                <input type="text" name="fullName" required placeholder="Іваненко Іван">
-                            </label>
-                            <label>E-mail *
-                                <input type="email" name="email" required placeholder="name@example.com">
-                            </label>
-                            <label>Вік *
-                                <input type="number" name="age" required min="1" max="120">
-                            </label>
-                            <label>Освіта *
-                                <select name="education" required>
-                                    <option value="">— Оберіть —</option>
-                                    <option>повна</option>
-                                    <option>неповна</option>
-                                    <option>вища</option>
-                                    <option>професійна</option>
-                                </select>
-                            </label>
-                            
-                        </div>
-                    </fieldset>
+    <center>
+        <h2><font color="#ffd166" size="5">Форма зворотнього зв'язку</font></h2>
+        <hr width="60%" color="#2a335a">
+    </center>
 
-                    <div class="grid">
-                        <label>Мета зворотнього зв’язку
-                            <select name="purpose" required>
-                                <option value="">— Оберіть —</option>
-                                <option>співпраця</option>
-                                <option>скарга на порушення права власності</option>
-                                <option>пропозиція</option>
-                                <option>наявність помилки</option>
-                            </select>
-                        </label>
-                        <label>Детально
-                            <textarea name="details" rows="5" cols="40" maxlength="500" style="max-height: 200px; max-width: 100%;"></textarea>
-                        </label>
-                    </div>
+    <br>
 
-                    <label class="consent">
-                        <input type="checkbox" name="consent" required>
-                        Згоден(на) на обробку інформації
-                    </label>
+    <center>
+        <table width="70%" cellpadding="20" bgcolor="#1a2038" border="2" bordercolor="#7aa2ff">
+            <tr>
+                <td>
+                    <form action="#" method="post">
+                        <fieldset style="border: 2px solid #7aa2ff; padding: 15px; background-color: #0d1530;">
+                            <legend><font color="#ffd166" size="4"><b>Персональна інформація</b></font></legend>
 
-                    <div class="actions">
-                        <button type="submit" class="btn btn-primary">Надіслати</button>
-                        <button type="reset" class="btn">Очистити</button>
-                    </div>
-                </form>
-            </section>
-        </article>
-    </main>
+                            <table width="100%" cellpadding="8">
+                                <tr>
+                                    <td width="50%">
+                                        <font color="#a8b2d1">Прізвище та ім'я *</font><br>
+                                        <input type="text" name="fullName" required placeholder="Іваненко Іван" size="30">
+                                    </td>
+                                    <td width="50%">
+                                        <font color="#a8b2d1">E-mail *</font><br>
+                                        <input type="email" name="email" required placeholder="name@example.com" size="30">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <font color="#a8b2d1">Вік *</font><br>
+                                        <input type="number" name="age" required min="1" max="120" size="30">
+                                    </td>
+                                    <td>
+                                        <font color="#a8b2d1">Освіта *</font><br>
+                                        <select name="education" required size="1">
+                                            <option value="">— Оберіть —</option>
+                                            <option>повна</option>
+                                            <option>неповна</option>
+                                            <option>вища</option>
+                                            <option>професійна</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
 
-    
+                        <br>
 
-    
+                        <table width="100%" cellpadding="8">
+                            <tr>
+                                <td>
+                                    <font color="#a8b2d1">Мета зворотнього зв'язку *</font><br>
+                                    <select name="purpose" required size="1" style="width: 100%;">
+                                        <option value="">— Оберіть —</option>
+                                        <option>співпраця</option>
+                                        <option>скарга на порушення права власності</option>
+                                        <option>пропозиція</option>
+                                        <option>наявність помилки</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <font color="#a8b2d1">Детально</font><br>
+                                    <textarea name="details" rows="6" cols="60" maxlength="500" style="width: 95%;"></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="consent" required>
+                                    <font color="#e0e6f0">Згоден(на) на обробку інформації</font>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <br>
+
+                        <center>
+                            <table cellpadding="5">
+                                <tr>
+                                    <td>
+                                        <button type="submit" style="background-color: #7aa2ff; color: #0d1530; border: none; padding: 10px 20px; font-size: 16px; font-weight: bold; cursor: pointer;">
+                                            Надіслати
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <button type="reset" style="background-color: transparent; color: #7aa2ff; border: 2px solid #7aa2ff; padding: 10px 20px; font-size: 16px; cursor: pointer;">
+                                            Очистити
+                                        </button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </center>
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </center>
+
+    <br><br>
+
+    <center>
+        <table bgcolor="#12182a" cellpadding="15" border="0">
+            <tr>
+                <td align="center">
+                    <font size="3"><b><a href="index.html">Повернутися на головну сторінку</a></b></font>
+                </td>
+            </tr>
+        </table>
+    </center>
+
+    <br>
+
 </body>
 </html>
-

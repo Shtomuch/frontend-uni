@@ -1,110 +1,212 @@
-// Lab3 — Variant 7
-// 1) Records for encyclopedia lots and operations
-(function lotsModule() {
-  const lots = [
-    { id: 1, title: 'Планети', author: 'О. Коваль', shortLen: 120, usersDay1: 1200, usersDay2: 900, publishedAt: new Date('2025-01-05T10:30:00') },
-    { id: 2, title: 'Зірки', author: 'М. Іваненко', shortLen: 200, usersDay1: 800, usersDay2: 600, publishedAt: new Date('2025-02-12T20:10:00') },
-    { id: 3, title: 'Галактики', author: 'Л. Сагайдак', shortLen: 180, usersDay1: 400, usersDay2: 350, publishedAt: new Date('2025-03-01T06:05:00') },
-    { id: 4, title: 'Місії', author: 'Ю. Марченко', shortLen: 90, usersDay1: 650, usersDay2: 700, publishedAt: new Date('2025-04-02T13:45:00') },
-    { id: 5, title: 'Космологія', author: 'Редакція', shortLen: 220, usersDay1: 500, usersDay2: 480, publishedAt: new Date('2025-05-03T15:15:00') },
-    { id: 6, title: 'Небулярна теорія', author: 'М. Іваненко', shortLen: 160, usersDay1: 720, usersDay2: 540, publishedAt: new Date('2025-06-21T09:00:00') },
-    { id: 7, title: 'Екзопланети', author: 'О. Коваль', shortLen: 140, usersDay1: 900, usersDay2: 880, publishedAt: new Date('2025-07-11T11:25:00') },
-    { id: 8, title: 'Спектроскопія', author: 'Редакція', shortLen: 110, usersDay1: 350, usersDay2: 300, publishedAt: new Date('2025-08-09T17:30:00') },
-    { id: 9, title: 'Історія астрономії', author: 'Ю. Марченко', shortLen: 130, usersDay1: 430, usersDay2: 410, publishedAt: new Date('2025-09-18T19:40:00') },
-    { id: 10, title: 'Телескопи', author: 'Л. Сагайдак', shortLen: 95, usersDay1: 600, usersDay2: 610, publishedAt: new Date('2025-10-01T07:20:00') },
-  ];
+var lots = [
+  { id: 1, title: 'Планети', author: 'О. Коваль', shortLen: 120, usersDay1: 1200, usersDay2: 900, publishedAt: new Date('2025-01-05T10:30:00') },
+  { id: 2, title: 'Зірки', author: 'М. Іваненко', shortLen: 200, usersDay1: 800, usersDay2: 600, publishedAt: new Date('2025-02-12T20:10:00') },
+  { id: 3, title: 'Галактики', author: 'Л. Сагайдак', shortLen: 180, usersDay1: 400, usersDay2: 350, publishedAt: new Date('2025-03-01T06:05:00') },
+  { id: 4, title: 'Місії', author: 'Ю. Марченко', shortLen: 90, usersDay1: 650, usersDay2: 700, publishedAt: new Date('2025-04-02T13:45:00') },
+  { id: 5, title: 'Космологія', author: 'Редакція', shortLen: 220, usersDay1: 500, usersDay2: 480, publishedAt: new Date('2025-05-03T15:15:00') },
+  { id: 6, title: 'Небулярна теорія', author: 'М. Іваненко', shortLen: 160, usersDay1: 720, usersDay2: 540, publishedAt: new Date('2025-06-21T09:00:00') },
+  { id: 7, title: 'Екзопланети', author: 'О. Коваль', shortLen: 140, usersDay1: 900, usersDay2: 880, publishedAt: new Date('2025-07-11T11:25:00') },
+  { id: 8, title: 'Спектроскопія', author: 'Редакція', shortLen: 110, usersDay1: 350, usersDay2: 300, publishedAt: new Date('2025-08-09T17:30:00') },
+  { id: 9, title: 'Історія астрономії', author: 'Ю. Марченко', shortLen: 130, usersDay1: 430, usersDay2: 410, publishedAt: new Date('2025-09-18T19:40:00') },
+  { id: 10, title: 'Телескопи', author: 'Л. Сагайдак', shortLen: 95, usersDay1: 600, usersDay2: 610, publishedAt: new Date('2025-10-01T07:20:00') }
+];
 
-  // sort by publication time
-  const sortedByTime = [...lots].sort((a, b) => a.publishedAt - b.publishedAt);
-  console.log('lots.sortedByTime ids:', sortedByTime.map(l => l.id));
-
-  // average shortLen per hour of day
-  const byHour = new Map();
-  for (const l of lots) {
-    const hour = l.publishedAt.getHours();
-    if (!byHour.has(hour)) byHour.set(hour, []);
-    byHour.get(hour).push(l.shortLen);
-  }
-  const avgLenByHour = [...byHour.entries()].map(([hour, arr]) => ({ hour, avg: arr.reduce((s, v) => s + v, 0) / arr.length }));
-  console.log('avg shortLen by hour:', avgLenByHour);
-
-  // min usersDay2 and ids
-  const minDay2 = Math.min(...lots.map(l => l.usersDay2));
-  const minDay2Ids = lots.filter(l => l.usersDay2 === minDay2).map(l => l.id);
-  console.log('min usersDay2 value:', minDay2, 'ids:', minDay2Ids);
-
-  // insert new lot depending on completeness
-  function insertLot(list, lot) {
-    const requiredKeys = ['id','title','author','shortLen','usersDay1','usersDay2','publishedAt'];
-    const complete = requiredKeys.every(k => lot[k] !== undefined && lot[k] !== null);
-    if (!complete) {
-      list.push(lot);
-    } else {
-      const insertIndex = list.findIndex(l => l.shortLen > lot.shortLen);
-      if (insertIndex === -1) list.push(lot);
-      else list.splice(insertIndex, 0, lot);
+var sortedLots = [];
+for (var i = 0; i < lots.length; i++) {
+  sortedLots.push(lots[i]);
+}
+for (var i = 0; i < sortedLots.length; i++) {
+  for (var j = i + 1; j < sortedLots.length; j++) {
+    if (sortedLots[i].publishedAt > sortedLots[j].publishedAt) {
+      var temp = sortedLots[i];
+      sortedLots[i] = sortedLots[j];
+      sortedLots[j] = temp;
     }
-    return list;
   }
-  insertLot(lots, { id: 11, title: 'Комети', author: 'Редакція' });
-  insertLot(lots, { id: 12, title: 'Астероїди', author: 'Редакція', shortLen: 120, usersDay1: 200, usersDay2: 150, publishedAt: new Date() });
-  console.log('lots after inserts length:', lots.length);
+}
+console.log('Сортування за часом:');
+for (var i = 0; i < sortedLots.length; i++) {
+  console.log(sortedLots[i].id);
+}
 
-  // author payment by season rule
-  function pricePerSymbol(date) {
-    const month = date.getMonth();
-    const isSummerWinter = [11,0,1,5,6,7].includes(month);
-    return isSummerWinter ? 0.95 : 1.1;
+var hourGroups = {};
+for (var i = 0; i < lots.length; i++) {
+  var hour = lots[i].publishedAt.getHours();
+  if (!hourGroups[hour]) {
+    hourGroups[hour] = [];
   }
-  const payments = lots
-    .filter(l => l.publishedAt && l.shortLen)
-    .map(l => ({ id: l.id, pay: +(l.shortLen * pricePerSymbol(l.publishedAt)).toFixed(2) }));
-  console.log('payments:', payments);
-})();
-
-// 2) Users records and operations
-(function usersModule() {
-  class User { constructor(lastName, firstName, age, education, purpose, dateStr, timeStr) { this.lastName = lastName; this.firstName = firstName; this.age = age; this.education = education; this.purpose = purpose; this.date = new Date(`${dateStr}T${timeStr}`); } }
-  const users = [
-    new User('Коваль','Ірина',28,'вища','співпраця','2025-01-02','08:30'),
-    new User('Іваненко','Марко',34,'повна','пропозиція','2025-03-15','10:00'),
-    new User('Сагайдак','Леся',41,'вища','наявність помилки','2025-06-20','19:10'),
-    new User('Марченко','Юрій',63,'професійна','скарга на порушення права власності','2025-07-11','21:00'),
-    new User('Петренко','Олег',22,'неповна','співпраця','2025-09-05','12:00'),
-    new User('Сидоренко','Анна',55,'вища','пропозиція','2025-10-10','16:30'),
-    new User('Бондар','Оксана',48,'вища','пропозиція','2025-04-08','14:40'),
-    new User('Романюк','Дарина',31,'повна','співпраця','2025-11-18','09:05'),
-    new User('Гуменюк','Стас',27,'неповна','наявність помилки','2025-12-01','23:50'),
-    new User('Шевченко','Ілля',60,'вища','співпраця','2025-02-22','07:15'),
-  ];
-
-  // filter by month and moment in time
-  function usersInMonthAt(month, hhmm) {
-    const [h, m] = hhmm.split(':').map(Number);
-    return users.filter(u => u.date.getMonth() === month && (u.date.getHours() > h || (u.date.getHours() === h && u.date.getMinutes() >= m)));
+  hourGroups[hour].push(lots[i].shortLen);
+}
+console.log('Середня довжина за годиною:');
+for (var hour in hourGroups) {
+  var sum = 0;
+  for (var i = 0; i < hourGroups[hour].length; i++) {
+    sum = sum + hourGroups[hour][i];
   }
-  console.log('users in March after 09:30:', usersInMonthAt(2,'09:30').map(u => u.lastName));
+  var avg = sum / hourGroups[hour].length;
+  console.log('Година ' + hour + ': ' + avg);
+}
 
-  // max age and details
-  const maxAge = Math.max(...users.map(u => u.age));
-  const oldest = users.find(u => u.age === maxAge);
-  console.log('max age user:', { age: maxAge, education: oldest.education, date: oldest.date.toISOString() });
-
-  // classes by time and purpose
-  const classes = { owlsClaims: 0, friendlyLarks: 0, other: 0 };
-  for (const u of users) {
-    const hour = u.date.getHours();
-    const isLark = hour >= 6 && hour < 12;
-    const isOwl = hour >= 20 || hour < 6;
-    if (isOwl && u.purpose.includes('скарга')) classes.owlsClaims++;
-    else if (isLark && u.purpose.includes('пропозиція')) classes.friendlyLarks++;
-    else classes.other++;
+var minUsers = lots[0].usersDay2;
+for (var i = 1; i < lots.length; i++) {
+  if (lots[i].usersDay2 < minUsers) {
+    minUsers = lots[i].usersDay2;
   }
-  console.log('classes:', classes);
+}
+console.log('Мінімум користувачів на 2 день: ' + minUsers);
+var minIds = [];
+for (var i = 0; i < lots.length; i++) {
+  if (lots[i].usersDay2 === minUsers) {
+    minIds.push(lots[i].id);
+  }
+}
+console.log('ID з мінімумом:');
+for (var i = 0; i < minIds.length; i++) {
+  console.log(minIds[i]);
+}
 
-  // sorting by alphabet with purpose
-  const sorted = [...users].sort((a,b)=> a.lastName.localeCompare(b.lastName) || a.firstName.localeCompare(b.firstName));
-  console.log('sorted users with purposes:', sorted.map(u => `${u.lastName} ${u.firstName}: ${u.purpose}`));
-})();
+function insertLot(list, lot) {
+  var hasAll = true;
+  if (!lot.id) hasAll = false;
+  if (!lot.title) hasAll = false;
+  if (!lot.author) hasAll = false;
+  if (!lot.shortLen) hasAll = false;
+  if (!lot.usersDay1) hasAll = false;
+  if (!lot.usersDay2) hasAll = false;
+  if (!lot.publishedAt) hasAll = false;
 
+  if (!hasAll) {
+    list.push(lot);
+  } else {
+    var inserted = false;
+    for (var i = 0; i < list.length; i++) {
+      if (list[i].shortLen > lot.shortLen) {
+        list.splice(i, 0, lot);
+        inserted = true;
+        break;
+      }
+    }
+    if (!inserted) {
+      list.push(lot);
+    }
+  }
+}
 
+insertLot(lots, { id: 11, title: 'Комети', author: 'Редакція' });
+insertLot(lots, { id: 12, title: 'Астероїди', author: 'Редакція', shortLen: 120, usersDay1: 200, usersDay2: 150, publishedAt: new Date() });
+console.log('Після вставки, довжина: ' + lots.length);
+
+function getPricePerSymbol(date) {
+  var month = date.getMonth();
+  if (month === 11 || month === 0 || month === 1 || month === 5 || month === 6 || month === 7) {
+    return 0.95;
+  } else {
+    return 1.1;
+  }
+}
+
+console.log('Оплати:');
+for (var i = 0; i < lots.length; i++) {
+  if (lots[i].publishedAt && lots[i].shortLen) {
+    var price = getPricePerSymbol(lots[i].publishedAt);
+    var pay = lots[i].shortLen * price;
+    console.log('ID ' + lots[i].id + ': ' + pay.toFixed(2));
+  }
+}
+
+function User(lastName, firstName, age, education, purpose, dateStr, timeStr) {
+  this.lastName = lastName;
+  this.firstName = firstName;
+  this.age = age;
+  this.education = education;
+  this.purpose = purpose;
+  this.date = new Date(dateStr + 'T' + timeStr);
+}
+
+var users = [
+  new User('Коваль','Ірина',28,'вища','співпраця','2025-01-02','08:30'),
+  new User('Іваненко','Марко',34,'повна','пропозиція','2025-03-15','10:00'),
+  new User('Сагайдак','Леся',41,'вища','наявність помилки','2025-06-20','19:10'),
+  new User('Марченко','Юрій',63,'професійна','скарга на порушення права власності','2025-07-11','21:00'),
+  new User('Петренко','Олег',22,'неповна','співпраця','2025-09-05','12:00'),
+  new User('Сидоренко','Анна',55,'вища','пропозиція','2025-10-10','16:30'),
+  new User('Бондар','Оксана',48,'вища','пропозиція','2025-04-08','14:40'),
+  new User('Романюк','Дарина',31,'повна','співпраця','2025-11-18','09:05'),
+  new User('Гуменюк','Стас',27,'неповна','наявність помилки','2025-12-01','23:50'),
+  new User('Шевченко','Ілля',60,'вища','співпраця','2025-02-22','07:15')
+];
+
+function filterUsersByMonthAndTime(month, timeStr) {
+  var parts = timeStr.split(':');
+  var targetHour = parseInt(parts[0]);
+  var targetMin = parseInt(parts[1]);
+  var result = [];
+  for (var i = 0; i < users.length; i++) {
+    if (users[i].date.getMonth() === month) {
+      var h = users[i].date.getHours();
+      var m = users[i].date.getMinutes();
+      if (h > targetHour || (h === targetHour && m >= targetMin)) {
+        result.push(users[i]);
+      }
+    }
+  }
+  return result;
+}
+
+var marchUsers = filterUsersByMonthAndTime(2, '09:30');
+console.log('Користувачі у березні після 09:30:');
+for (var i = 0; i < marchUsers.length; i++) {
+  console.log(marchUsers[i].lastName);
+}
+
+var maxAge = users[0].age;
+for (var i = 1; i < users.length; i++) {
+  if (users[i].age > maxAge) {
+    maxAge = users[i].age;
+  }
+}
+console.log('Максимальний вік: ' + maxAge);
+for (var i = 0; i < users.length; i++) {
+  if (users[i].age === maxAge) {
+    console.log('Освіта: ' + users[i].education);
+    console.log('Дата: ' + users[i].date);
+  }
+}
+
+var owlsClaims = 0;
+var friendlyLarks = 0;
+var other = 0;
+for (var i = 0; i < users.length; i++) {
+  var hour = users[i].date.getHours();
+  var isLark = hour >= 6 && hour < 12;
+  var isOwl = hour >= 20 || hour < 6;
+  if (isOwl && users[i].purpose.indexOf('скарга') >= 0) {
+    owlsClaims = owlsClaims + 1;
+  } else if (isLark && users[i].purpose.indexOf('пропозиція') >= 0) {
+    friendlyLarks = friendlyLarks + 1;
+  } else {
+    other = other + 1;
+  }
+}
+console.log('Сови зі скаргами: ' + owlsClaims);
+console.log('Жайворонки з пропозиціями: ' + friendlyLarks);
+console.log('Інші: ' + other);
+
+var sortedUsers = [];
+for (var i = 0; i < users.length; i++) {
+  sortedUsers.push(users[i]);
+}
+for (var i = 0; i < sortedUsers.length; i++) {
+  for (var j = i + 1; j < sortedUsers.length; j++) {
+    var compare = sortedUsers[i].lastName.localeCompare(sortedUsers[j].lastName);
+    if (compare > 0 || (compare === 0 && sortedUsers[i].firstName.localeCompare(sortedUsers[j].firstName) > 0)) {
+      var temp = sortedUsers[i];
+      sortedUsers[i] = sortedUsers[j];
+      sortedUsers[j] = temp;
+    }
+  }
+}
+console.log('Сортування користувачів:');
+for (var i = 0; i < sortedUsers.length; i++) {
+  console.log(sortedUsers[i].lastName + ' ' + sortedUsers[i].firstName + ': ' + sortedUsers[i].purpose);
+}

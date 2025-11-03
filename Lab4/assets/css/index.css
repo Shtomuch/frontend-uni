@@ -1,4 +1,3 @@
-/* Головна (вар.7) */
 .block {
   background: rgba(18, 24, 54, 0.6);
   border: 1px solid #2a335a;
@@ -6,6 +5,8 @@
   padding: 20px;
   margin: 28px 0 32px;
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
+  position: relative;
+  z-index: 1;
 }
 
 .mission {
@@ -62,3 +63,23 @@ thead th {
   border-radius: 8px;
 }
 
+.snowflake {
+  position: fixed;
+  top: -20px;
+  color: #fff;
+  font-size: 24px;
+  user-select: none;
+  pointer-events: none;
+  z-index: 1000;
+  animation: fall linear infinite;
+  opacity: 0.8;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateX(0) translateY(0);
+  }
+  100% {
+    transform: translateX(var(--horizontal-movement)) translateY(100vh);
+  }
+}

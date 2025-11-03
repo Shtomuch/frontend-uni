@@ -1,0 +1,5 @@
+*.docx
+*.md
+~$*
+.DS_Store
+.idea/

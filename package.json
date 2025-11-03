@@ -1,0 +1,13 @@
+{
+  "name": "frontend-uni",
+  "version": "1.0.0",
+  "description": "Frontend university labs",
+  "scripts": {
+    "dev": "cd Lab5 && npm run dev",
+    "build": "cd Lab5 && npm run build",
+    "start": "cd Lab5 && npm start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

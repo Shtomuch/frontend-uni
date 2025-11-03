@@ -21,13 +21,12 @@ body {
   background: radial-gradient(1200px 800px at 20% 0%, #101736, var(--bg));
   display: flex;
   flex-direction: column;
+  position: relative;
+  overflow-x: hidden;
 }
 
 .site-header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
+  position: relative;
   z-index: 2;
   background: rgba(18, 24, 54, 0.85);
   border-bottom: 1px solid #2a335a;
@@ -58,8 +57,6 @@ body {
   height: 36px;
   width: 36px;
   filter: drop-shadow(0 2px 8px rgba(122, 162, 255, 0.4));
-  float: left;
-  margin-right: 12px;
 }
 
 .site-header .site-nav {
@@ -82,12 +79,11 @@ body {
 
 .container {
   width: min(1200px, 100%);
-  margin: 80px auto 24px;
+  margin: 24px auto;
   padding: 0 16px;
   flex: 1;
 }
 
-/* Узгоджені відступи та типографіка */
 h1 {
   margin: 8px 0 0;
   font-size: 1.6rem;
@@ -133,4 +129,22 @@ a[href^="http"] {
   transform: scale(1.02);
 }
 
+@media (max-width: 768px) {
+  .site-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
 
+  .site-header .site-nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    margin-top: 0;
+  }
+
+  .site-header .site-nav a {
+    display: block;
+    text-align: left;
+  }
+}

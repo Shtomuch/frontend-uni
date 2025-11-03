@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lab2 — Розділ про Планети (Варіант 7)</title>
+    <title>Lab4 — Розділ про Планети</title>
     <link rel="stylesheet" href="assets/css/base.css">
     <link rel="stylesheet" href="assets/css/planets.css">
 </head>
@@ -13,7 +13,7 @@
             <img class="logo" src="../Lab1/assets/img/logo.svg" alt="Логотип" width="48" height="48">
             <h1>Планети</h1>
         </div>
-        <nav class="site-nav">
+        <nav class="site-nav" id="mainNav">
             <a href="index.html">Головна</a>
             <a href="section-some2.html">Зірки</a>
             <a href="feedback.html">Зворотній зв'язок</a>
@@ -21,9 +21,43 @@
     </header>
 
     <main class="container">
-        <section class="cards-grid">
+        <div class="accordion-wrapper">
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header">Меркурій</div>
+                    <div class="accordion-content">
+                        <p>Найближча планета до Сонця. Має дуже тонку атмосферу.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">Венера</div>
+                    <div class="accordion-content">
+                        <p>Друга планета від Сонця. Щільна атмосфера CO₂ створює парниковий ефект.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">Земля</div>
+                    <div class="accordion-content">
+                        <p>Третя планета від Сонця. Єдина відома планета з життям.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">Марс</div>
+                    <div class="accordion-content">
+                        <p>Червона планета. Можливі давні океани та потенціал для колонізації.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="search-wrapper">
+            <label for="searchInput">Пошук</label>
+            <input type="text" id="searchInput" placeholder="Введіть назву планети...">
+        </div>
+
+        <section class="cards-grid" id="planetsGrid">
             <a href="https://uk.wikipedia.org/wiki/Меркурій_(планета)" target="_blank" rel="noopener">
-                <article class="card lot">
+                <article class="card lot" data-name="Меркурій">
                     <img src="../Lab1/assets/img/Меркурій .webp" alt="Меркурій">
                     <div class="card-body">
                         <h3>Меркурій</h3>
@@ -32,7 +66,7 @@
                 </article>
             </a>
             <a href="https://uk.wikipedia.org/wiki/Земля" target="_blank" rel="noopener">
-                <article class="card lot">
+                <article class="card lot" data-name="Земля">
                     <img src="../Lab1/assets/img/ЗЕМЛЯ.jpeg" alt="Земля">
                     <div class="card-body">
                         <h3>Земля</h3>
@@ -41,7 +75,7 @@
                 </article>
             </a>
             <a href="https://uk.wikipedia.org/wiki/Венера_(планета)" target="_blank" rel="noopener">
-                <article class="card lot">
+                <article class="card lot" data-name="Венера">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Venus-real_color.jpg/320px-Venus-real_color.jpg" alt="Венера">
                     <div class="card-body">
                         <h3>Венера</h3>
@@ -50,7 +84,7 @@
                 </article>
             </a>
             <a href="https://uk.wikipedia.org/wiki/Марс_(планета)" target="_blank" rel="noopener">
-                <article class="card lot">
+                <article class="card lot" data-name="Марс">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/OSIRIS_Mars_true_color.jpg/320px-OSIRIS_Mars_true_color.jpg" alt="Марс">
                     <div class="card-body">
                         <h3>Марс</h3>
@@ -59,7 +93,7 @@
                 </article>
             </a>
             <a href="https://uk.wikipedia.org/wiki/Юпітер_(планета)" target="_blank" rel="noopener">
-                <article class="card lot">
+                <article class="card lot" data-name="Юпітер">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Jupiter.jpg/320px-Jupiter.jpg" alt="Юпітер">
                     <div class="card-body">
                         <h3>Юпітер</h3>
@@ -68,7 +102,7 @@
                 </article>
             </a>
             <a href="https://uk.wikipedia.org/wiki/Сатурн_(планета)" target="_blank" rel="noopener">
-                <article class="card lot">
+                <article class="card lot" data-name="Сатурн">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Saturn_during_Equinox.jpg/320px-Saturn_during_Equinox.jpg" alt="Сатурн">
                     <div class="card-body">
                         <h3>Сатурн</h3>
@@ -80,7 +114,11 @@
     </main>
 
     <footer class="site-footer">
-        <small>Лабораторна №2 · Варіант 7</small>
+        <small>Лабораторна №4 · Варіант 7</small>
     </footer>
+
+    <script src="assets/js/accordion.js"></script>
+    <script src="assets/js/search.js"></script>
+    <script src="assets/js/responsive-menu.js"></script>
 </body>
 </html>

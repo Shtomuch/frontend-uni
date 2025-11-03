@@ -4,177 +4,153 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orionpedia — Тематична онлайн‑енциклопедія</title>
+    <style>
+        body { background-color: #0a0e1a; color: #e0e6f0; margin: 0; font-family: Arial, sans-serif; }
+        a { color: #6699ff; text-decoration: none; }
+        a:visited { color: #9966ff; }
+        a:active { color: #ff9933; }
+        header { background-color: #12182a; padding: 10px 0; border-bottom: 1px solid #2a335a; }
+        .header-container { max-width: 95%; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .branding { display: flex; align-items: center; gap: 10px; }
+        .branding img { width: 80px; height: 80px; }
+        h1 { color: #7aa2ff; font-size: 2rem; margin: 0; }
+        .tagline { color: #a8b2d1; font-size: 0.9rem; font-style: italic; }
+        nav a { margin: 0 8px; }
+        main { max-width: 95%; margin: 20px auto; }
+        section { background-color: #1a2038; border: 1px solid #2a335a; border-radius: 8px; padding: 20px; margin: 20px 0; }
+        footer { background-color: #12182a; padding: 15px; text-align: center; border-top: 1px solid #2a335a; }
+        table { width: 100%; border-collapse: collapse; background-color: #12182a; }
+        th, td { border: 1px solid #2a335a; padding: 10px; text-align: left; }
+        thead { background-color: #16204a; }
+        tfoot { background-color: #0d1530; font-style: italic; color: #a8b2d1; }
+        caption { font-weight: bold; font-size: 1.1rem; color: #ffd166; margin-bottom: 10px; }
+        .highlight { background-color: #1a2a5e; font-weight: bold; }
+        ul { list-style-type: square; }
+        .styled-text { font-size: 1.1rem; }
+    </style>
 </head>
-<body bgcolor="#0a0e1a" text="#e0e6f0" link="#6699ff" vlink="#9966ff" alink="#ff9933">
+<body>
 
-    <table width="100%" cellpadding="10" cellspacing="0" bgcolor="#12182a" border="0">
-        <tr>
-            <td align="center">
-                <table width="95%" cellpadding="0" cellspacing="0">
-                    <tr>
-                        <td width="200">
-                            <img src="assets/img/logo.svg" alt="Логотип Orionpedia" width="80" height="80" align="left" hspace="10">
-                            <h1><font color="#7aa2ff" size="6">Orionpedia</font></h1>
-                            <font size="2" color="#a8b2d1"><i>Онлайн‑енциклопедія про космос</i></font>
-                        </td>
-                        <td align="right" valign="middle">
-                            <font size="3">
-                                <a href="#mission">📍 До мети</a> |
-                                <a href="#footer">📞 До контактів</a> |
-                                <a href="section-some1.html">🪐 Планети</a> |
-                                <a href="section-some2.html">⭐ Зірки</a> |
-                                <a href="feedback.html">✉️ Зворотній зв'язок</a>
-                            </font>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
+    <header>
+        <div class="header-container">
+            <div class="branding">
+                <img src="assets/img/logo.svg" alt="Логотип Orionpedia">
+                <div>
+                    <h1>Orionpedia</h1>
+                    <p class="tagline">Онлайн‑енциклопедія про космос</p>
+                </div>
+            </div>
+            <nav>
+                <a href="#mission">До мети</a> |
+                <a href="#footer">До контактів</a> |
+                <a href="section-some1.html">Планети</a> |
+                <a href="section-some2.html">Зірки</a> |
+                <a href="feedback.html">Зворотній зв'язок</a>
+            </nav>
+        </div>
+    </header>
 
-    <br><br>
+    <main>
+        <article id="mission">
+            <section>
+                <h2 style="color: #ffd166; font-size: 1.5rem;">Мета енциклопедії</h2>
+                <hr style="border-color: #2a335a;">
+                <p class="styled-text" style="text-align: justify;">
+                    Ця енциклопедія створена, щоб зробити космос ближчим кожному:
+                    <i>доступно</i> і <b>наочно</b>. Ми прагнемо
+                    <em>пояснювати складне</em>, залишаючи матеріал <u>точним</u> та <span style="color: #ffd166; font-weight: bold;">цікавим</span>.
+                </p>
 
-    <center>
-        <table width="90%" cellpadding="20" cellspacing="0" bgcolor="#1a2038" border="1" bordercolor="#2a335a">
-            <tr>
-                <td>
-                    <a name="mission"></a>
-                    <h2><font color="#ffd166" size="5">🎯 Мета енциклопедії</font></h2>
-                    <hr width="50%" color="#2a335a">
-                    <blockquote>
-                        <p align="justify">
-                            <font size="4">
-                                Ця енциклопедія створена, щоб зробити космос ближчим кожному:
-                                <i>доступно</i> і <b>наочно</b>. Ми прагнемо
-                                <em>пояснювати складне</em>, залишаючи матеріал <u>точним</u> та цікавим.
-                            </font>
-                        </p>
-                    </blockquote>
+                <div style="background-color: #0d1530; padding: 10px; border-radius: 8px; margin: 20px auto; max-width: 80%;">
+                    <ul style="color: #a8b2d1;">
+                        <li>Збирати перевірені статті про планети, зірки та галактики</li>
+                        <li>Оновлювати матеріали згідно з сучасними відкриттями</li>
+                        <li>Надавати якісні ілюстрації та посилання на джерела</li>
+                    </ul>
+                </div>
+            </section>
+        </article>
 
-                    <table width="80%" cellpadding="10" align="center">
-                        <tr>
-                            <td bgcolor="#0d1530">
-                                <font size="3" color="#a8b2d1">
-                                    <ul type="square">
-                                        <li>Збирати перевірені статті про планети, зірки та галактики</li>
-                                        <li>Оновлювати матеріали згідно з сучасними відкриттями</li>
-                                        <li>Надавати якісні ілюстрації та посилання на джерела</li>
-                                    </ul>
-                                </font>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-        </table>
-    </center>
-
-    <br><br>
-
-    <center>
-        <table width="90%" cellpadding="15" cellspacing="0" bgcolor="#1a2038" border="2" bordercolor="#7aa2ff">
-            <tr>
-                <td>
-                    <a name="authors"></a>
-                    <h2 align="center"><font color="#7aa2ff" size="5">📚 Інформація про тематику та авторів</font></h2>
-                    <br>
-                    <table border="1" bordercolor="#2a335a" cellpadding="8" cellspacing="0" width="100%" bgcolor="#12182a">
-                        <caption><b><font size="4" color="#ffd166">Orionpedia — огляд предметної області та авторів</font></b></caption>
-                        <thead bgcolor="#16204a">
-                            <tr align="center">
-                                <th><font color="#e0e6f0">Розділ</font></th>
-                                <th><font color="#e0e6f0">Опис</font></th>
-                                <th><font color="#e0e6f0">Автор</font></th>
-                                <th><font color="#e0e6f0">Досвід</font></th>
-                                <th><font color="#e0e6f0">Освіта</font></th>
+        <section id="authors">
+            <h2 style="color: #7aa2ff; font-size: 1.5rem; text-align: center;">Інформація про тематику та авторів</h2>
+            <table>
+                        <caption>Orionpedia — огляд предметної області та авторів</caption>
+                        <thead>
+                            <tr style="text-align: center;">
+                                <th>Розділ</th>
+                                <th>Опис</th>
+                                <th>Автор</th>
+                                <th>Досвід</th>
+                                <th>Освіта</th>
                             </tr>
                         </thead>
-                        <tfoot bgcolor="#0d1530">
+                        <tfoot>
                             <tr>
-                                <td colspan="5" align="center"><i><font color="#a8b2d1">Матеріали перевіряються редакцією Orionpedia щокварталу</font></i></td>
+                                <td colspan="5" style="text-align: center;"><i>Матеріали перевіряються редакцією Orionpedia щокварталу</i></td>
                             </tr>
                         </tfoot>
                         <tbody>
                             <tr>
-                                <td rowspan="2" align="center" bgcolor="#1a2a5e"><b>Планети</b></td>
+                                <td rowspan="2" class="highlight" style="text-align: center;">Планети</td>
                                 <td>Будова, атмосфера, супутники</td>
                                 <td>О. Коваль</td>
-                                <td align="center">5 років</td>
+                                <td style="text-align: center;">5 років</td>
                                 <td>Астрономія</td>
                             </tr>
-                            <tr bgcolor="#151f45">
+                            <tr style="background-color: #151f45;">
                                 <td>Методи спостережень</td>
                                 <td>М. Іваненко</td>
-                                <td align="center">3 роки</td>
+                                <td style="text-align: center;">3 роки</td>
                                 <td>Фізика</td>
                             </tr>
                             <tr>
-                                <td align="center" bgcolor="#1a2a5e"><b>Зірки</b></td>
+                                <td class="highlight" style="text-align: center;">Зірки</td>
                                 <td colspan="2">Класифікація та еволюція</td>
-                                <td align="center">8 років</td>
+                                <td style="text-align: center;">8 років</td>
                                 <td>Астрофізика</td>
                             </tr>
-                            <tr bgcolor="#151f45">
-                                <td align="center" bgcolor="#1a2a5e"><b>Галактики</b></td>
+                            <tr style="background-color: #151f45;">
+                                <td class="highlight" style="text-align: center;">Галактики</td>
                                 <td>Типи та взаємодії</td>
                                 <td>Л. Сагайдак</td>
-                                <td align="center">6 років</td>
+                                <td style="text-align: center;">6 років</td>
                                 <td>Космологія</td>
                             </tr>
                             <tr>
-                                <td align="center" bgcolor="#1a2a5e"><b>Місії</b></td>
+                                <td class="highlight" style="text-align: center;">Місії</td>
                                 <td>Історія досліджень</td>
                                 <td>Ю. Марченко</td>
-                                <td colspan="2" align="center">10 років, Інженерія КА</td>
+                                <td colspan="2" style="text-align: center;">10 років, Інженерія КА</td>
                             </tr>
-                            <tr bgcolor="#151f45">
-                                <td align="center" bgcolor="#1a2a5e"><b>Методологія</b></td>
+                            <tr style="background-color: #151f45;">
+                                <td class="highlight" style="text-align: center;">Методологія</td>
                                 <td>Джерела та перевірка фактів</td>
                                 <td>Редакція</td>
-                                <td align="center">—</td>
-                                <td>—</td>
+                                <td style="text-align: center;">—</td>
+                                <td style="text-align: center;">—</td>
                             </tr>
                         </tbody>
                     </table>
-                </td>
-            </tr>
-        </table>
-    </center>
+        </section>
 
-    <br><br>
+        <aside style="background-color: #0d1530; border: 1px solid #7aa2ff; border-radius: 8px; padding: 15px; max-width: 30%; margin: 20px auto;">
+            <h3 style="color: #ffd166; text-align: center;">Швидкі посилання</h3>
+            <hr style="border-color: #2a335a;">
+            <p style="text-align: center;">
+                <a href="https://science.nasa.gov/" target="_blank" rel="noopener"><b>NASA Science</b></a><br><br>
+                <a href="https://www.esa.int/" target="_blank" rel="noopener"><b>European Space Agency</b></a>
+            </p>
+        </aside>
+    </main>
 
-    <center>
-        <table width="30%" cellpadding="15" bgcolor="#0d1530" border="1" bordercolor="#7aa2ff">
-            <tr>
-                <td align="center">
-                    <h3><font color="#ffd166">🔗 Швидкі посилання</font></h3>
-                    <hr width="80%" color="#2a335a">
-                    <font size="3">
-                        🌐 <a href="https://science.nasa.gov/" target="_blank" rel="noopener"><b>NASA Science</b></a><br><br>
-                        🚀 <a href="https://www.esa.int/" target="_blank" rel="noopener"><b>European Space Agency</b></a>
-                    </font>
-                </td>
-            </tr>
-        </table>
-    </center>
-
-    <br><br>
-
-    <table width="100%" cellpadding="15" cellspacing="0" bgcolor="#12182a" border="0">
-        <tr>
-            <td align="center">
-                <a name="footer"></a>
-                <hr width="90%" color="#2a335a">
-                <address>
-                    <font size="3" color="#a8b2d1">
-                        <b><font color="#7aa2ff">📍 Редакція Orionpedia</font></b><br>
-                        вул. Науки, 42, Київ, Україна<br>
-                        ☎️ Тел.: <a href="tel:+380441234567">+38 (044) 123‑45‑67</a>
-                    </font>
-                </address>
-            </td>
-        </tr>
-    </table>
+    <footer id="footer">
+        <hr style="border-color: #2a335a; width: 90%;">
+        <address style="color: #a8b2d1;">
+            <strong style="color: #7aa2ff;">Редакція Orionpedia</strong><br>
+            вул. Науки, 42, Київ, Україна<br>
+            Тел.: <a href="tel:+380441234567">+38 (044) 123‑45‑67</a>
+        </address>
+    </footer>
 
 </body>
 </html>
